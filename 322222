@@ -1,1 +1,66 @@
 
+<?php
+
+echo "<h3>5.1 Обычный массив + вывод через цикл</h3>";
+
+$array1 = ["Apple", "Banana", "Orange", "Mango", "Grapes"];
+
+for ($i = 0; $i < count($array1); $i++) {
+    echo "Индекс $i: " . $array1[$i] . "<br>";
+}
+
+
+echo "<h3>5.2 Обычный массив + print_r</h3>";
+
+$array2 = ["Red", "Green", "Blue", "Yellow", "Black"];
+
+echo "<pre>";
+print_r($array2);
+echo "</pre>";
+
+
+echo "<h3>5.3 Ассоциативный массив (логин => пароль)</h3>";
+
+$users = [
+    "admin" => "12345",
+    "user1" => "qwerty",
+    "user2" => "abc123"
+];
+
+echo "<pre>";
+print_r($users);
+echo "</pre>";
+
+
+echo "<h3>5.4 Проверка логина и пароля</h3>";
+
+$login = "admin";
+$password = "12345";
+
+if (isset($users[$login]) && $users[$login] === $password) {
+    echo "Пользователь найден. Доступ разрешен.<br>";
+} else {
+    echo "Неверный логин или пароль.<br>";
+}
+
+
+echo "<h3>5.5 Случайный массив чисел</h3>";
+
+$randomArray = [];
+$count = rand(5, 10); // случайное количество элементов от 5 до 10
+
+for ($i = 0; $i < $count; $i++) {
+    $randomArray[] = rand(1, 100); // случайные числа от 1 до 100
+}
+
+sort($randomArray);
+
+echo "Отсортированный массив:<br>";
+echo "<pre>";
+print_r($randomArray);
+echo "</pre>";
+
+echo "Количество элементов: " . count($randomArray) . "<br>";
+echo "Сумма элементов: " . array_sum($randomArray) . "<br>";
+
+?>
